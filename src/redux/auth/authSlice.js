@@ -3,7 +3,7 @@ import { signUp, logIn, logOut, current } from './authThunk';
 
 const initialState = {
   user: {},
-  isLogin: false,
+  isLogin: localStorage.getItem('isLoggedIn') === 'true',
   token: '',
   loading: false,
   error: null,
@@ -51,6 +51,7 @@ const authSlice = createSlice({
         state.user = payload.user;
         state.token = payload.token;
         state.isLogin = true;
+        localStorage.setItem('isLoggedIn', 'true');
       })
       .addCase(signUpAsync.rejected, (state, { payload }) => {
         state.loading = false;
@@ -65,6 +66,7 @@ const authSlice = createSlice({
         state.user = payload.user;
         state.token = payload.token;
         state.isLogin = true;
+        localStorage.setItem('isLoggedIn', 'true');
       })
       .addCase(logInAsync.rejected, (state, { payload }) => {
         state.loading = false;
@@ -79,6 +81,7 @@ const authSlice = createSlice({
         state.user = {};
         state.token = '';
         state.isLogin = false;
+        localStorage.setItem('isLoggedIn', 'false');
       })
       .addCase(logOutAsync.rejected, (state, { payload }) => {
         state.loading = false;
@@ -97,6 +100,7 @@ const authSlice = createSlice({
         state.loading = false;
         state.token = '';
         state.error = payload;
+        localStorage.setItem('isLoggedIn', 'false');
       });
   },
 });

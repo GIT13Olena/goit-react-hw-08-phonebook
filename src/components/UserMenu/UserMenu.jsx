@@ -1,14 +1,37 @@
 import Button from '@mui/material/Button';
-import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
 import { logOut } from 'redux/auth/authThunk';
 import { getUser } from 'redux/auth/authSelectors';
-import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { updateUser } from 'redux/auth/authSlice';
 
 export const UserMenu = () => {
   const { name } = useSelector(getUser);
   const dispatch = useDispatch();
 
-  const onLogOut = () => dispatch(logOut());
+  useEffect(() => {
+    const storedName = localStorage.getItem('userName');
+    if (storedName) {
+      dispatch(updateUser({ name: storedName }));
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (name) {
+      localStorage.setItem('userName', name);
+    }
+  }, [name]);
+
+  const onLogOut = () => {
+    dispatch(logOut());
+    localStorage.removeItem('userName');
+    dispatch(updateUser({}));
+  };
+
+  if (!name) {
+    return null;
+  }
 
   return (
     <UserNav>
