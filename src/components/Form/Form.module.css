@@ -1,0 +1,13 @@
+.label-add-contacts {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-add-contacts {
+  cursor: pointer;
+  margin-top: 5px;
+  border: transparent;
+  border-bottom: 1px solid black;
+  background: transparent;
+}

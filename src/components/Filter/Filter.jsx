@@ -1,21 +1,24 @@
 import PropTypes from 'prop-types';
-import { FilterContainer, Field } from './Filter.styled';
+import styles from './Filther.module.css';
 
-export const Filter = ({ value, onChangeFilter }) => {
+function Filter({ value, onChangeFilter }) {
   return (
-    <FilterContainer>
+    <label className={styles['label-search']}>
       Find contacts by name
-      <Field
+      <input
         type="text"
         value={value}
         onChange={onChangeFilter}
         placeholder="&#128269;"
+        className={styles['input-search']}
       />
-    </FilterContainer>
+    </label>
   );
-};
+}
 
 Filter.propTypes = {
   value: PropTypes.string.isRequired,
   onChangeFilter: PropTypes.func.isRequired,
 };
+
+export default Filter;

@@ -1,21 +1,24 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Navigation } from 'components/Navigation/Navigation';
-import { WrapperHeader, WrapperMain } from './Header.styled';
-import { Loader } from 'components/Loader/Loader';
+import Navigation from 'components/Navigation/Navigation';
+import Loader from 'components/Loader/Loader';
 
-export const Layout = () => {
+import './Header.module.css';
+
+function Layout() {
   return (
     <>
-      <WrapperHeader>
+      <header>
         <Navigation />
-      </WrapperHeader>
-      
-      <WrapperMain>
+      </header>
+
+      <main>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
-      </WrapperMain>
+      </main>
     </>
   );
-};
+}
+
+export default Layout;

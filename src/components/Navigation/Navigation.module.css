@@ -1,0 +1,17 @@
+.header-navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-page {
+  display: flex;
+  gap: 20px;
+}
+
+.link-page {
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 700;
+  margin-right: 20px;
+  color: black;
+}

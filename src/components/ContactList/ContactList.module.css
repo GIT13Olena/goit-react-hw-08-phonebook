@@ -1,0 +1,20 @@
+.list-contacts {
+  display: grid;
+  grid-gap: 10px;
+}
+
+.item-contact-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.number {
+  font-size: 11px;
+  padding: 3px;
+}

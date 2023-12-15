@@ -1,18 +1,30 @@
-import { NavStyled } from './Navigation.styled';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { isAuth } from 'redux/auth/authSelectors';
 import { AuthNav } from 'components/AuthNav/AuthNav';
 import { UserMenu } from 'components/UserMenu/UserMenu';
-import { NavContainer } from './Navigation.styled';
 
-export const Navigation = () => {
+import styles from './Navigation.module.css';
+
+function Navigation() {
   const isLogin = useSelector(isAuth);
 
   return (
-    <NavContainer>
-      <NavStyled to="/home">Нome</NavStyled>
-      {isLogin && <NavStyled to="/contacts">Contacts</NavStyled>}
+    <div className={styles['header-navigation']}>
+      <nav className={styles['nav-page']}>
+        <NavLink to="/home" className={styles['link-page']}>
+          Нome
+        </NavLink>
+        {isLogin && (
+          <NavLink to="/contacts" className={styles['link-page']}>
+            Contacts
+          </NavLink>
+        )}
+      </nav>
+
       {isLogin ? <UserMenu /> : <AuthNav />}
-    </NavContainer>
+    </div>
   );
-};
+}
+
+export default Navigation;

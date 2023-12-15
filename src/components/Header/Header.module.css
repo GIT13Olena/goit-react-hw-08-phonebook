@@ -1,0 +1,11 @@
+header {
+  background: white;
+  padding: 10px;
+  border: 3px solid black;
+  margin: 15px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}

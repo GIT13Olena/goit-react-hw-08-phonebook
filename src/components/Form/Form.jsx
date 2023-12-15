@@ -1,8 +1,9 @@
 import Button from '@mui/material/Button';
 import { useState } from 'react';
-import { ContainerForm, ContaierField, FieldItem } from './Form.styled';
 
-export function Form({ onData }) {
+import styles from './Form.module.css';
+
+function Form({ onData }) {
   const initialState = {
     name: '',
     number: '',
@@ -26,10 +27,10 @@ export function Form({ onData }) {
   };
 
   return (
-    <ContainerForm onSubmit={handleSubmit}>
-      <ContaierField>
+    <form onSubmit={handleSubmit}>
+      <label className={styles['label-add-contacts']}>
         Name
-        <FieldItem
+        <input
           type="text"
           name="name"
           value={name}
@@ -38,11 +39,12 @@ export function Form({ onData }) {
           required
           placeholder="&#128221;"
           onChange={handleChange}
+          className={styles['input-add-contacts']}
         />
-      </ContaierField>
-      <ContaierField>
+      </label>
+      <label className={styles['label-add-contacts']}>
         Phone number
-        <FieldItem
+        <input
           type="tel"
           name="number"
           value={number}
@@ -51,8 +53,9 @@ export function Form({ onData }) {
           required
           placeholder="&#9743;"
           onChange={handleChange}
+          className={styles['input-add-contacts']}
         />
-      </ContaierField>
+      </label>
       <Button
         variant="contained"
         size="small"
@@ -61,6 +64,8 @@ export function Form({ onData }) {
       >
         Add contact
       </Button>
-    </ContainerForm>
+    </form>
   );
 }
+
+export default Form;

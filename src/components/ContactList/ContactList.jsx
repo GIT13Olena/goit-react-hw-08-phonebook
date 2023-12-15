@@ -1,15 +1,18 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
-import { ContactContainer, ContactEl } from './ContactList.styled';
 
-export const ContactList = ({ contacts, onDeleteContact }) => {
+import styles from './ContactList.module.css';
+
+function ContactList({ contacts, onDeleteContact }) {
   return (
-    <ContactContainer>
+    <ul className={styles['list-contacts']}>
       {contacts.map(({ id, name, number }) => (
-        <ContactEl key={id}>
-          <span>&#128222;{name}: </span>
-          <span>{number}</span>
+        <li key={id} className={styles['item-contact-list']}>
+          <div className={styles['contact-info']}>
+            <span>📞{name}</span>
+            <span className={styles['number']}>{number}</span>
+          </div>
           <Button
             variant="contained"
             size="small"
@@ -18,13 +21,15 @@ export const ContactList = ({ contacts, onDeleteContact }) => {
           >
             Delete
           </Button>
-        </ContactEl>
+        </li>
       ))}
-    </ContactContainer>
+    </ul>
   );
-};
+}
 
 ContactList.propTypes = {
   contacts: PropTypes.array.isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };
+
+export default ContactList;
