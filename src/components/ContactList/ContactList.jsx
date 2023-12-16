@@ -12,17 +12,24 @@ function ContactList({ contacts, onDeleteContact }) {
       {contacts.map(({ id, name, number }) => (
         <li key={id} className={styles['item-contact-list']}>
           <div className={styles['svg-info']}>
-            <img src={phone} alt="svg phone" />
+            <a href={`tel:${number}`}>
+              <img src={phone} alt="svg phone" />
+            </a>
             <div className={styles['contact-info']}>
               <span>{name}</span>
               <span className={styles['number']}>{number}</span>
             </div>
           </div>
-
           <img
             src={dumpster}
             alt="svg dumpster"
-            onClick={() => onDeleteContact(id)}
+            onClick={() => {
+              if (
+                window.confirm('Ви впевнені, що хочете видалити цей контакт?')
+              ) {
+                onDeleteContact(id);
+              }
+            }}
           />
         </li>
       ))}

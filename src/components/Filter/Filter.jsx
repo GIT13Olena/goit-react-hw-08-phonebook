@@ -9,7 +9,7 @@ function Filter({ value, onChangeFilter }) {
         type="text"
         value={value}
         onChange={onChangeFilter}
-        placeholder="&#128269;"
+        placeholder="&#128269; Name"
         className={styles['input-search']}
       />
     </label>

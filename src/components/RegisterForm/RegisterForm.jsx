@@ -34,8 +34,10 @@ export function RegisterForm({ onData }) {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          backgroundColor: 'white',
-          padding: '20px',
+          background: '#938e94ba',
+          padding: '30px 40px',
+          border: '3px solid gray',
+          borderRadius: ' 15px',
         }}
       >
         <Typography variant="h4">Sign Up</Typography>

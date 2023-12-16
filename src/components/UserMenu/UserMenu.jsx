@@ -37,7 +37,15 @@ export const UserMenu = () => {
   return (
     <UserNav>
       <StyledName> &#128526; {name} </StyledName>
-      <img src={logout} alt="svg logout" onClick={onLogOut} />
+      <img
+        src={logout}
+        alt="svg logout"
+        onClick={() => {
+          if (window.confirm('Ви впевнені, що хочете вийти з акаунту?')) {
+            onLogOut();
+          }
+        }}
+      />
     </UserNav>
   );
 };
