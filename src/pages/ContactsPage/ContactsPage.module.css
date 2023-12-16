@@ -5,9 +5,10 @@
 }
 
 .add-contacts {
-  background: #c4cad00d;
-  padding: 40px 20px;
-  border: 2px solid black;
+  background: #938e94ba;
+  border: 2px solid #5d5c61;
+  border-radius: 15px;
+  padding: 40px 35px;
 }
 
 .search-contacts {
