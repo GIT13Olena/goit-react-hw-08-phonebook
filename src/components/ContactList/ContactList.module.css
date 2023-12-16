@@ -9,6 +9,11 @@
   align-items: center;
 }
 
+.svg-info {
+  display: flex;
+  gap: 10px;
+}
+
 .contact-info {
   display: flex;
   flex-direction: column;

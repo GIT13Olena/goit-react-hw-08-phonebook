@@ -1,10 +1,11 @@
-import Button from '@mui/material/Button';
 import styled from 'styled-components';
 import { logOut } from 'redux/auth/authThunk';
 import { getUser } from 'redux/auth/authSelectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { updateUser } from 'redux/auth/authSlice';
+
+import logout from '../../icons/exit.svg';
 
 export const UserMenu = () => {
   const { name } = useSelector(getUser);
@@ -36,16 +37,13 @@ export const UserMenu = () => {
   return (
     <UserNav>
       <StyledName> &#128526; {name} </StyledName>
-      <Button variant="contained" size="small" onClick={onLogOut} type="button">
-        Log Out
-      </Button>
+      <img src={logout} alt="svg logout" onClick={onLogOut} />
     </UserNav>
   );
 };
 
 export const UserNav = styled.div`
   display: flex;
-  align-items: center;
 `;
 
 export const StyledName = styled.span`
