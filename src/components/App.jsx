@@ -8,6 +8,8 @@ import { useDispatch } from 'react-redux';
 import { current } from 'redux/auth/authThunk';
 import { NotFoundPage } from '../pages/NotFoundPage/NotFoundPage';
 
+import video from '../background/video-background.mp4';
+
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
@@ -22,6 +24,10 @@ export const App = () => {
 
   return (
     <>
+      <video autoPlay loop muted playsInline>
+        <source src={video} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="home" />} />
