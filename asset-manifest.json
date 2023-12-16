@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/goit-react-hw-08-phonebook/static/css/main.32b4f962.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.b1822ef3.js",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.cf82f93c.js",
     "static/js/156.01e09eae.chunk.js": "/goit-react-hw-08-phonebook/static/js/156.01e09eae.chunk.js",
-    "static/css/898.9d4de7a6.chunk.css": "/goit-react-hw-08-phonebook/static/css/898.9d4de7a6.chunk.css",
+    "static/css/898.fcae2fe4.chunk.css": "/goit-react-hw-08-phonebook/static/css/898.fcae2fe4.chunk.css",
     "static/js/898.b1fce28c.chunk.js": "/goit-react-hw-08-phonebook/static/js/898.b1fce28c.chunk.js",
     "static/js/815.b87a6411.chunk.js": "/goit-react-hw-08-phonebook/static/js/815.b87a6411.chunk.js",
     "static/js/643.cccc0a82.chunk.js": "/goit-react-hw-08-phonebook/static/js/643.cccc0a82.chunk.js",
@@ -11,9 +11,9 @@
     "static/media/video-background.mp4": "/goit-react-hw-08-phonebook/static/media/video-background.2b0ab7b929e395c571b8.mp4",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
     "main.32b4f962.css.map": "/goit-react-hw-08-phonebook/static/css/main.32b4f962.css.map",
-    "main.b1822ef3.js.map": "/goit-react-hw-08-phonebook/static/js/main.b1822ef3.js.map",
+    "main.cf82f93c.js.map": "/goit-react-hw-08-phonebook/static/js/main.cf82f93c.js.map",
     "156.01e09eae.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/156.01e09eae.chunk.js.map",
-    "898.9d4de7a6.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/898.9d4de7a6.chunk.css.map",
+    "898.fcae2fe4.chunk.css.map": "/goit-react-hw-08-phonebook/static/css/898.fcae2fe4.chunk.css.map",
     "898.b1fce28c.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/898.b1fce28c.chunk.js.map",
     "815.b87a6411.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/815.b87a6411.chunk.js.map",
     "643.cccc0a82.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/643.cccc0a82.chunk.js.map",
@@ -21,6 +21,6 @@
   },
   "entrypoints": [
     "static/css/main.32b4f962.css",
-    "static/js/main.b1822ef3.js"
+    "static/js/main.cf82f93c.js"
   ]
 }
