@@ -6,5 +6,9 @@
 
 .input-search {
   cursor: pointer;
-  margin-top: 5px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #5d5c61;
+  background: #d6d9d9;
+  width: 100%;
 }

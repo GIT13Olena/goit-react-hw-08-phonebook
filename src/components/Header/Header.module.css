@@ -1,8 +1,9 @@
 header {
-  background: white;
-  padding: 10px;
-  border: 3px solid black;
+  background: #938e94ba;
+  border: 3px solid #5d5c61;
+  border-radius: 10px;
   margin: 15px;
+  padding: 10px;
 }
 
 main {
