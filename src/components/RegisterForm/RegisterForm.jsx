@@ -1,5 +1,14 @@
-import { Button, TextField, Box, Container, Typography } from '@mui/material';
-
+import {
+  Button,
+  TextField,
+  Box,
+  Container,
+  Typography,
+  IconButton,
+  InputAdornment,
+} from '@mui/material';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
 
 export function RegisterForm({ onData }) {
@@ -7,10 +16,24 @@ export function RegisterForm({ onData }) {
     name: '',
     email: '',
     password: '',
+    emailError: '',
+    passwordError: '',
+    showPassword: false,
   };
 
   const [state, setState] = useState({ ...initialState });
-  const { name, email, password } = state;
+  const { name, email, password, emailError, passwordError, showPassword } =
+    state;
+
+  const validateEmail = email => {
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const validatePassword = password => {
+    return password.length >= 8;
+  };
 
   const handleChange = ({ target }) => {
     const { name, value } = target;
@@ -18,12 +41,46 @@ export function RegisterForm({ onData }) {
       ...prevState,
       [name]: value,
     }));
+
+    if (name === 'email') {
+      if (!validateEmail(value)) {
+        setState(prevState => ({
+          ...prevState,
+          emailError: 'Введіть дійсну електронну адресу',
+        }));
+      } else {
+        setState(prevState => ({
+          ...prevState,
+          emailError: '',
+        }));
+      }
+    }
+
+    if (name === 'password') {
+      if (!validatePassword(value)) {
+        setState(prevState => ({
+          ...prevState,
+          passwordError: 'Пароль повинен містити принаймні 8 символів',
+        }));
+      } else {
+        setState(prevState => ({
+          ...prevState,
+          passwordError: '',
+        }));
+      }
+    }
+  };
+
+  const handleClickShowPassword = () => {
+    setState({ ...state, showPassword: !state.showPassword });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    onData({ ...state });
-    setState({ ...initialState });
+    if (!emailError && !passwordError) {
+      onData({ ...state });
+      setState({ ...initialState });
+    }
   };
 
   return (
@@ -65,6 +122,8 @@ export function RegisterForm({ onData }) {
             value={email}
             variant="standard"
             onChange={handleChange}
+            error={!!emailError}
+            helperText={emailError}
           />
           <TextField
             margin="normal"
@@ -72,14 +131,36 @@ export function RegisterForm({ onData }) {
             fullWidth
             name="password"
             label="Password"
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             autoComplete="current-password"
             value={password}
             variant="standard"
             onChange={handleChange}
+            error={!!passwordError}
+            helperText={passwordError}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={handleClickShowPassword}>
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
 
-          <Button type="submit" variant="outlined" size="small">
+          <Button
+            type="submit"
+            variant="outlined"
+            size="small"
+            sx={{
+              color: 'white',
+              backgroundColor: '#1337aeeb',
+              '&:hover': {
+                backgroundColor: '#003bff',
+              },
+            }}
+          >
             Sign Up
           </Button>
         </Box>
